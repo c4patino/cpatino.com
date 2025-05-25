@@ -1,0 +1,65 @@
+name: ci
+
+on:
+  push:
+    branches: ["*"]
+    tags: ["v*.*.*"]
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: ["*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup environment
+        uses: c4patino/actions/.github/actions/setup-js@main
+      - name: install dependencies
+        run: pnpm install
+      - name: run tests
+        run: pnpm test
+  format:
+    uses: c4patino/actions/.github/workflows/format.yml@main
+    with:
+      language: js
+      command: pnpm format
+  increment:
+    needs: [test, format]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main')
+    uses: c4patino/actions/.github/workflows/increment.yml@main
+    with:
+      language: js
+  build:
+    runs-on: ubuntu-latest
+    needs: increment
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup environment
+        uses: c4patino/actions/.github/actions/setup-js@main
+      - name: install dependencies
+        run: pnpm install
+      - name: build package
+        run: pnpm build
+      - name: upload page artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: deploy to github pages
+        uses: actions/deploy-pages@v4
