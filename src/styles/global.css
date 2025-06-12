@@ -207,4 +207,13 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+  .navbar {
+    background-color: var(--sidebar);
+    color: var(--sidebar-foreground);
+    border-bottom: 1px solid var(--sidebar-border);
+    box-shadow: 0 1px 4px 0 var(--shadow-color);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+  }
 }
+
