@@ -53,7 +53,7 @@ function DesktopNavbar({ links }: NavbarProps) {
 
 function MobileNavbar({ links }: NavbarProps) {
   return (
-    <div className="fixed bottom-4 left-4 z-50 md:hidden">
+    <div className="fixed bottom-4 left-4 md:hidden">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" aria-label="Open menu" className="navbar-trigger">
@@ -82,11 +82,7 @@ function MobileNavbar({ links }: NavbarProps) {
 }
 
 export default function Navbar() {
-  const links: Link[] = [
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/blog", label: "Blog" },
-  ];
+  const links: Link[] = [];
 
   return (
     <div>

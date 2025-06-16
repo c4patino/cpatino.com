@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "tailwind-scrollbar";
+/* @plugin "tailwindcss-animate"; */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -207,6 +209,7 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+
   .navbar {
     background-color: var(--sidebar);
     color: var(--sidebar-foreground);
@@ -215,10 +218,40 @@
     padding: 0.5rem 1rem;
     font-family: var(--font-sans);
   }
+
   .navbar-trigger {
     background-color: var(--sidebar);
     color: var(--sidebar-foreground);
     border-bottom: 1px solid var(--sidebar-border);
     box-shadow: 0 1px 4px 0 var(--shadow-color);
   }
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary rounded-full;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+@keyframes fade-in-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-top {
+  animation: fade-in-top 2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
