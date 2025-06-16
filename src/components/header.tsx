@@ -82,7 +82,10 @@ function MobileNavbar({ links }: NavbarProps) {
 }
 
 export default function Navbar() {
-  const links: Link[] = [];
+  const links: Link[] = [
+    { label: "home", href: "/" },
+    { label: "about", href: "/about" },
+  ];
 
   return (
     <div>
