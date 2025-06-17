@@ -11,7 +11,7 @@ import CenterLayout from "@/layouts/center.astro";
 import ProfilePicture from "@/components/profile-picture";
 
 const animation =
-  "animate-in fade-in duration-1500 ease-[cubic-bezier(0.36, 1, 0.36, 1)]";
+  "animate-in fade-in duration-1000 ease-[cubic-bezier(0.36, 1, 0.36, 1)] fill-mode-backwards";
 ---
 
 <BaseLayout title="home">
@@ -21,11 +21,11 @@ const animation =
         <ProfilePicture client:load />
       </div>
       <h1
-        class=`${animation} slide-in-from-top-12 text-4xl font-extrabold tracking-tight`
+        class=`${animation} slide-in-from-top-12 delay-250 text-4xl font-extrabold tracking-tight`
       >
         cpatino
       </h1>
-      <div class=`${animation} slide-in-from-top-8 flex gap-6`>
+      <div class=`${animation} slide-in-from-top-6 delay-500 flex gap-6`>
         <IconLink icon={Github} href="https://www.github.com/c4patino" />
         <IconLink icon={LinkedIn} href="https://www.linkedin.com/in/c-patino" />
         <IconLink icon={Mail} href="mailto:c4patino@gmail.com" />
