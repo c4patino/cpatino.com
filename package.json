@@ -1,7 +1,7 @@
 {
   "name": "astro-app",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "astro": "astro",
     "build": "astro build",
