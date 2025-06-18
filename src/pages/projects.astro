@@ -1,0 +1,17 @@
+---
+import "@/styles/global.css";
+
+import BaseLayout from "@/layouts/base.astro";
+import CenterLayout from "@/layouts/center.astro";
+
+import ProjectsCarousel from "@/components/projects-carousel";
+---
+
+<BaseLayout title="projects">
+  <CenterLayout>
+    <div class="flex h-full w-full flex-col items-center gap-4 md:p-24">
+      <h1 class="tracking-light text-3xl font-extrabold">projects</h1>
+      <ProjectsCarousel client:load />
+    </div>
+  </CenterLayout>
+</BaseLayout>
