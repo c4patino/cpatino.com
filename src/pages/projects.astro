@@ -1,0 +1,28 @@
+---
+import "@/styles/global.css";
+
+import BaseLayout from "@/layouts/base.astro";
+
+import ProjectsCarousel from "@/components/projects-carousel";
+
+const animation = "animate-in fade-in duration-1000 fill-mode-backwards";
+---
+
+<BaseLayout title="projects">
+  <div
+    class="grid h-full w-full grid-cols-1 md:grid-cols-6 md:place-items-center md:pb-18"
+  >
+    <div class="flex items-center justify-center">
+      <h1
+        class=`${animation} slide-in-from-top-8 md:pl-8 md:slide-in-from-left-12 md:slide-in-from-top-0 tracking-light text-center text-3xl font-extrabold`
+      >
+        projects
+      </h1>
+    </div>
+    <div
+      class=`${animation} slide-in-from-top-12 col-span-5 flex flex-col items-center gap-4`
+    >
+      <ProjectsCarousel client:load />
+    </div>
+  </div>
+</BaseLayout>

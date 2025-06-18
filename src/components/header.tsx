@@ -85,6 +85,7 @@ export default function Navbar() {
   const links: Link[] = [
     { label: "home", href: "/" },
     { label: "about", href: "/about" },
+    { label: "projects", href: "/projects" },
   ];
 
   return (
