@@ -53,7 +53,7 @@ function DesktopNavbar({ links }: NavbarProps) {
 
 function MobileNavbar({ links }: NavbarProps) {
   return (
-    <div className="fixed bottom-4 left-4 md:hidden">
+    <div className="fixed bottom-4 left-4 z-999 md:hidden">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" aria-label="Open menu" className="navbar-trigger">
