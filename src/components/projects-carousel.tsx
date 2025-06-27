@@ -70,9 +70,27 @@ export default function ProjectsCarousel() {
               alt="yumeami demo showcase"
             />
             <p className="text-muted-foreground text-center text-sm leading-snug">
-              A unified and modular NixOS configuration framework designed to
-              scale across workstations, laptops, and servers. Crafted for
-              consistency, clarity, and power.
+              My cross-machine NixOS config: one flake to rule workstations,
+              laptops, and servers. Fast to spin up, easy to tweak, and
+              structured to keep things sane.
+            </p>
+          </div>
+        </ProjectCard>
+        <ProjectCard
+          title="ゆめヴィム (yumevim)"
+          description='"the dream vim"'
+          repo="c4patino/nixvim"
+        >
+          <div className="flex h-full flex-col items-center justify-between">
+            <img
+              src="/projects/yumevim.png"
+              className="w-auto object-contain md:max-h-7/8"
+              alt="cpatino.com demo showcase"
+            />
+            <p className="text-muted-foreground text-center text-sm leading-snug">
+              A fully declarative Neovim setup powered by Nix and Lua. Batteries
+              included, but minimal by default — tuned for speed, clarity, and
+              daily driver use.
             </p>
           </div>
         </ProjectCard>
@@ -83,14 +101,14 @@ export default function ProjectsCarousel() {
         >
           <div className="flex h-full flex-col items-center justify-between">
             <img
-              src="/projects/cpatino.png"
+              src="/projects/cpatino.com.png"
               className="w-auto object-contain md:max-h-7/8"
               alt="cpatino.com demo showcase"
             />
             <p className="text-muted-foreground text-center text-sm leading-snug">
-              Welcome to my personal site — a place to share project updates,
-              experiments, and ideas. Built with Astro, focused on minimal
-              bundle size and clean design.
+              This site. Built with Astro. Mostly a digital notebook for
+              projects, ideas, and the occasional blog post. Focused on fast
+              loads and zero cruft.
             </p>
           </div>
         </ProjectCard>
