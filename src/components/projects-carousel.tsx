@@ -71,7 +71,7 @@ export default function ProjectsCarousel() {
             />
             <p className="text-muted-foreground text-center text-sm leading-snug">
               My cross-machine NixOS config: one flake to rule workstations,
-              laptops, and servers. Fast to spin up, easy to tweak, and
+              laptops, and servers. Fast to spin up, super modular, and
               structured to keep things sane.
             </p>
           </div>
@@ -89,8 +89,8 @@ export default function ProjectsCarousel() {
             />
             <p className="text-muted-foreground text-center text-sm leading-snug">
               A fully declarative Neovim setup powered by Nix and Lua. Batteries
-              included, but minimal by default — tuned for speed, clarity, and
-              daily driver use.
+              included, but minimal by default - tuned for speed, efficiency,
+              and daily driver use.
             </p>
           </div>
         </ProjectCard>
@@ -108,7 +108,7 @@ export default function ProjectsCarousel() {
             <p className="text-muted-foreground text-center text-sm leading-snug">
               This site. Built with Astro. Mostly a digital notebook for
               projects, ideas, and the occasional blog post. Focused on fast
-              loads and zero cruft.
+              loads and zero slog.
             </p>
           </div>
         </ProjectCard>
