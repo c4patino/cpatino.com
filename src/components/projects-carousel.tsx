@@ -19,39 +19,14 @@ import { Button } from "@/components/ui/button";
 interface ProjectCardProps {
   title: string;
   description?: string;
-  repo?: string;
+  repos?: Link[];
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
 
-function ProjectCard({
-  title,
-  description,
-  repo,
-  footer,
-  children,
-}: ProjectCardProps) {
-  return (
-    <CarouselItem>
-      <Card className="flex h-110 w-80 flex-col md:h-150 md:w-256">
-        <CardHeader className="shrink-o">
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-          <CardAction>
-            {repo && (
-              <Button asChild>
-                <a href={`https://github.com/${repo}`}>GitHub</a>
-              </Button>
-            )}
-          </CardAction>
-        </CardHeader>
-        <CardContent className="flex-grow overflow-hidden">
-          {children}
-        </CardContent>
-        <CardFooter className="shrink-0">{footer}</CardFooter>
-      </Card>
-    </CarouselItem>
-  );
+interface Link {
+  href: string;
+  text?: string;
 }
 
 export default function ProjectsCarousel() {
@@ -61,7 +36,7 @@ export default function ProjectsCarousel() {
         <ProjectCard
           title="ゆめあみ (yumeami)"
           description='"the dream web"'
-          repo="c4patino/yumeami"
+          repos={[{ href: "c4patino/yumeami" }]}
         >
           <div className="flex h-full flex-col items-center justify-between">
             <img
@@ -79,7 +54,10 @@ export default function ProjectsCarousel() {
         <ProjectCard
           title="ゆめヴィム (yumevim)"
           description='"the dream vim"'
-          repo="c4patino/nixvim"
+          repos={[
+            { text: "NixVim GitHub", href: "c4patino/nixvim" },
+            { text: "NeoVim GitHub", href: "c4patino/neovim" },
+          ]}
         >
           <div className="flex h-full flex-col items-center justify-between">
             <img
@@ -97,7 +75,7 @@ export default function ProjectsCarousel() {
         <ProjectCard
           title="cpatino.com"
           description='"my personal website - portfolio, blog, and more"'
-          repo="c4patino/cpatino.com"
+          repos={[{ href: "c4patino/cpatino.com" }]}
         >
           <div className="flex h-full flex-col items-center justify-between">
             <img
@@ -116,5 +94,40 @@ export default function ProjectsCarousel() {
       <CarouselPrevious className="hidden md:inline-flex" />
       <CarouselNext className="hidden md:inline-flex" />
     </Carousel>
+  );
+}
+
+function ProjectCard({
+  title,
+  description,
+  repos,
+  footer,
+  children,
+}: ProjectCardProps) {
+  return (
+    <CarouselItem>
+      <Card className="flex h-110 w-80 flex-col md:h-150 md:w-256">
+        <CardHeader className="shrink-o">
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
+          <CardAction>
+            <div className="flex gap-2">
+              {repos &&
+                repos.map((repo) => (
+                  <Button asChild>
+                    <a href={`https://github.com/${repo.href}`}>
+                      {repo.text || "GitHub"}
+                    </a>
+                  </Button>
+                ))}
+            </div>
+          </CardAction>
+        </CardHeader>
+        <CardContent className="flex-grow overflow-hidden">
+          {children}
+        </CardContent>
+        <CardFooter className="shrink-0">{footer}</CardFooter>
+      </Card>
+    </CarouselItem>
   );
 }
