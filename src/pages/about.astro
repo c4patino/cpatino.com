@@ -8,25 +8,81 @@ const animation =
 
 <BaseLayout title="about">
   <CenterLayout>
-    <div class="flex flex-col items-center gap-8">
+    <div
+      class="flex w-full max-w-3xl flex-col items-center gap-8 px-4 py-8 md:px-0"
+    >
       <h1 class={`${animation} tracking-light text-4xl font-extrabold`}>
         about me
       </h1>
-      <ul
-        class="flex list-inside list-disc flex-col gap-3 text-sm font-medium md:text-xl"
+
+      <div
+        class={`${animation} delay-100 text-sm font-medium md:text-lg text-center`}
       >
-        <li class={`${animation} delay-200`}>
-          19 y/o systems and AI enthusiast
-        </li>
-        <li class={`${animation} delay-100`}>
-          devoted nixos user & contributor
-        </li>
-        <li class={`${animation} delay-300`}>neovim & terminal life—always</li>
-        <li class={`${animation} delay-400`}>
-          love open systems and dev tools
-        </li>
-        <li class={`${animation} delay-100`}>building fast things with Rust</li>
-      </ul>
+        Aspiring computer scientist passionate about machine learning, systems
+        programming, and open-source development. Currently focused on
+        multi-agent reinforcement learning and high-performance computing.
+      </div>
+
+      <section class={`${animation} delay-200 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Quick Facts</h2>
+        <ul
+          class="flex list-inside list-disc flex-col gap-3 text-sm font-medium md:text-lg"
+        >
+          <li class="delay-100">19 y/o systems and AI enthusiast</li>
+          <li class="delay-100">devoted nixos user & contributor</li>
+          <li class="delay-100">neovim & terminal life—always</li>
+          <li class="delay-100">love open systems and dev tools</li>
+          <li class="delay-100">building fast things with Rust</li>
+        </ul>
+      </section>
+
+      <section class={`${animation} delay-300 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Education</h2>
+        <div class="mb-4">
+          <h3 class="text-xl font-semibold">
+            University of Nebraska — Lincoln
+          </h3>
+          <p class="text-sm md:text-base">B.S. Computer Science (2024-2026)</p>
+          <p class="text-muted-foreground text-sm italic">
+            Courses: Data Structures & Algorithms, Machine Learning, Software
+            Engineering, Computer Systems Engineering
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold">St. Louis Community College</h3>
+          <p class="text-sm md:text-base">Transfer (2022-2024)</p>
+        </div>
+      </section>
+
+      <section class={`${animation} delay-400 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Skills</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <h3 class="text-lg font-semibold">Languages</h3>
+            <p>Python, C++, Rust, JavaScript, Lua, Bash, SQL, Nix, Go, Java</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Frameworks & Libraries</h3>
+            <p>PyTorch, OpenCV, Astro, React, Express.js</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Tools & Platforms</h3>
+            <p>Docker, Git, Nix/NixOS, Maturin, MPI, HDF5, AWS, Django</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Concepts</h3>
+            <p>
+              Machine Learning, Reinforcement Learning, MARL, Parallel
+              Programming
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class={`${animation} delay-500 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Certifications</h2>
+        <p>AWS Certified Cloud Practitioner (Oct 2023 - May 2026)</p>
+      </section>
     </div>
   </CenterLayout>
 </BaseLayout>
