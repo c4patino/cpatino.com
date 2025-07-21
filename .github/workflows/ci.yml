@@ -35,8 +35,19 @@ jobs:
     with:
       language: js
       command: pnpm format
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup environment
+        uses: c4patino/actions/.github/actions/setup-js@main
+      - name: install dependencies
+        run: pnpm install
+      - name: run eslint
+        run: pnpm lint
   increment:
-    needs: [test, format]
+    needs: [test, format, lint]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main')
     uses: c4patino/actions/.github/workflows/increment.yml@main
     with:
