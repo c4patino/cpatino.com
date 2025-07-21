@@ -1,11 +1,7 @@
 ---
 import "@/styles/global.css";
-
-const { columns, rows } = Astro.props;
 ---
 
-<div
-  class=`grid-rows-${rows} grid h-full w-full grid-cols-${columns} place-items-center pb-20 md:pb-16`
->
+<div class=`flex h-full w-full items-center justify-center`>
   <slot />
 </div>
