@@ -195,9 +195,11 @@ export default function ProjectsCarousel() {
         >
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
-              <div className="flex items-center justify-center rounded-md bg-gray-200 p-8 md:p-16 dark:bg-gray-800">
-                <span className="text-5xl md:text-6xl">🌱 🔍</span>
-              </div>
+              <img
+                src="/projects/subterra.ai.png"
+                className="hidden h-auto max-h-full w-auto max-w-full object-contain dark:block"
+                alt="subterra.ai ui showcase"
+              />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
               <span className="md:hidden">
@@ -209,6 +211,32 @@ export default function ProjectsCarousel() {
                 Built root segmentation models using PyTorch for high-resolution
                 root image data, with OpenCV processing for volumetric estimates
                 achieving 97% accuracy.
+              </span>
+            </p>
+          </div>
+        </ProjectCard>
+        <ProjectCard
+          title="Fonio Seed Computer Vision Models"
+          description="Danforth Plant Science Center"
+        >
+          <div className="flex h-full flex-col items-center justify-between">
+            <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
+              <img
+                src="/projects/fonio-seed-cv.png"
+                className="h-auto max-h-full w-auto max-w-full object-contain"
+                alt="fonio seed computer vision showcase"
+              />
+            </div>
+            <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
+              <span className="md:hidden">
+                Computer vision system with 99% accuracy for counting
+                overlapping fonio seeds.
+              </span>
+              <span className="hidden md:inline">
+                Compiled and labeled a dataset of over 8,000 fonio seed images
+                for robust model training. Implemented a neural network
+                achieving 99% accuracy in detecting overlapping seeds and
+                providing precise counts.
               </span>
             </p>
           </div>
