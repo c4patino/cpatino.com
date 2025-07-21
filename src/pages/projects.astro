@@ -8,7 +8,7 @@ const animation = "animate-in fade-in duration-1000 fill-mode-backwards";
 
 <BaseLayout title="projects">
   <div
-    class="grid h-full w-full grid-cols-1 md:grid-cols-6 md:place-items-center md:pb-18"
+    class="grid min-h-[80vh] w-full grid-cols-1 px-4 py-2 md:grid-cols-6 md:place-items-center md:px-8 md:py-8"
   >
     <div class="flex items-center justify-center">
       <h1
@@ -18,7 +18,7 @@ const animation = "animate-in fade-in duration-1000 fill-mode-backwards";
       </h1>
     </div>
     <div
-      class=`${animation} slide-in-from-top-12 col-span-5 flex flex-col items-center gap-4`
+      class=`${animation} slide-in-from-top-12 col-span-5 flex flex-col items-center gap-4 mt-4 md:gap-8 md:mt-0`
     >
       <ProjectsCarousel client:load />
     </div>
