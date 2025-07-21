@@ -14,7 +14,7 @@ const animation =
 
 <BaseLayout title="home">
   <CenterLayout>
-    <div class=`${animation} flex flex-col items-center gap-8`>
+    <div class="my-auto flex flex-col items-center gap-8 px-4 py-8">
       <div class=`${animation} slide-in-from-top-14 h-32 w-32`>
         <ProfilePicture client:load />
       </div>
@@ -23,7 +23,9 @@ const animation =
       >
         cpatino
       </h1>
-      <div class=`${animation} slide-in-from-top-6 delay-500 flex gap-6`>
+      <div
+        class=`${animation} slide-in-from-top-6 delay-500 flex flex-wrap justify-center gap-4 md:gap-6`
+      >
         <IconLink icon={Github} href="https://www.github.com/c4patino" />
         <IconLink icon={LinkedIn} href="https://www.linkedin.com/in/c-patino" />
         <IconLink icon={Mail} href="mailto:c4patino@gmail.com" />
