@@ -147,7 +147,7 @@ export default function ProjectsCarousel() {
               />
               <img
                 src="/projects/free-range-zoo.light.png"
-                className="hidden h-auto max-h-full w-auto max-w-full object-contain dark:block"
+                className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="free-range-zoo showcase dark mode"
               />
             </div>
@@ -197,7 +197,7 @@ export default function ProjectsCarousel() {
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
                 src="/projects/subterra.ai.png"
-                className="hidden h-auto max-h-full w-auto max-w-full object-contain dark:block"
+                className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="subterra.ai ui showcase"
               />
             </div>
