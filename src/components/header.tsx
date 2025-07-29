@@ -26,7 +26,7 @@ function DesktopNavbar({ links }: NavbarProps) {
     <header className="navbar hidden w-full px-6 py-4 shadow md:block">
       <div className="container mx-auto flex items-center justify-between">
         <div className="text-xl font-bold">
-          <a href="/">cpatino.com</a>
+          <a href="/">Ceferino Patino | cpatino.com</a>
         </div>
 
         <nav className="border-bottom hidden md:block">
