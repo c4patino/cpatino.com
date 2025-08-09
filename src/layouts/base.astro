@@ -27,6 +27,12 @@ const { title } = Astro.props;
       attributeFilter: ["class"],
     });
   }
+
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      location.reload();
+    }
+  });
 </script>
 
 <html lang="en">
