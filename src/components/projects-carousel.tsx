@@ -41,7 +41,7 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/yumeami.png"
+                src="/projects/yumeami.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="yumeami demo showcase"
               />
@@ -69,7 +69,7 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/yumevim.png"
+                src="/projects/yumevim.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="yumevim demo showcase"
               />
@@ -89,7 +89,7 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/cpatino.com.png"
+                src="/projects/cpatino.com.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="cpatino.com demo showcase"
               />
@@ -109,12 +109,12 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/free-range-zoo.dark.png"
+                src="/projects/free-range-zoo.dark.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain dark:hidden"
                 alt="free-range-zoo showcase light mode"
               />
               <img
-                src="/projects/free-range-zoo.light.png"
+                src="/projects/free-range-zoo.light.webp"
                 className="hidden h-auto max-h-full w-auto max-w-full object-contain dark:block"
                 alt="free-range-zoo showcase dark mode"
               />
@@ -141,12 +141,12 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/free-range-zoo.dark.png"
+                src="/projects/free-range-zoo.dark.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain dark:hidden"
                 alt="free-range-zoo showcase light mode"
               />
               <img
-                src="/projects/free-range-zoo.light.png"
+                src="/projects/free-range-zoo.light.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="free-range-zoo showcase dark mode"
               />
@@ -196,7 +196,7 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/subterra.ai.png"
+                src="/projects/subterra.ai.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="subterra.ai ui showcase"
               />
@@ -222,7 +222,7 @@ export default function ProjectsCarousel() {
           <div className="flex h-full flex-col items-center justify-between">
             <div className="flex h-3/4 w-full items-center justify-center px-2 md:h-4/5 md:px-6">
               <img
-                src="/projects/fonio-seed-cv.png"
+                src="/projects/fonio-seed-cv.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="fonio seed computer vision showcase"
               />
