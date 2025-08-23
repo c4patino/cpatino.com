@@ -29,7 +29,10 @@ function DesktopNavbar({ links }: NavbarProps) {
           <a href="/">Ceferino Patino | cpatino.com</a>
         </div>
 
-        <nav className="border-bottom hidden md:block">
+        <nav
+          className="border-bottom hidden md:block"
+          aria-label="Main navigation"
+        >
           <NavigationMenu>
             <NavigationMenuList className="flex gap-4">
               {links.map(({ href, label }) => (
@@ -62,7 +65,10 @@ function MobileNavbar({ links }: NavbarProps) {
         </SheetTrigger>
         <SheetContent side="right" className="w-[250px]">
           <div className="m-6 flex h-full flex-col">
-            <nav className="mt-4 flex flex-grow flex-col gap-4">
+            <nav
+              className="mt-4 flex flex-grow flex-col gap-4"
+              aria-label="Mobile navigation"
+            >
               {links.map(({ href, label }) => (
                 <a
                   key={href}

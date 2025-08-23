@@ -44,6 +44,7 @@ export default function ProjectsCarousel() {
                 src="/projects/yumeami.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="yumeami demo showcase"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
@@ -72,6 +73,7 @@ export default function ProjectsCarousel() {
                 src="/projects/yumevim.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="yumevim demo showcase"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
@@ -92,6 +94,7 @@ export default function ProjectsCarousel() {
                 src="/projects/cpatino.com.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="cpatino.com demo showcase"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
@@ -112,11 +115,13 @@ export default function ProjectsCarousel() {
                 src="/projects/free-range-zoo.dark.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain dark:hidden"
                 alt="free-range-zoo showcase light mode"
+                loading="lazy"
               />
               <img
                 src="/projects/free-range-zoo.light.webp"
                 className="hidden h-auto max-h-full w-auto max-w-full object-contain dark:block"
                 alt="free-range-zoo showcase dark mode"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
@@ -144,6 +149,7 @@ export default function ProjectsCarousel() {
                 src="/projects/free-range-zoo.dark.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain dark:hidden"
                 alt="free-range-zoo showcase light mode"
+                loading="lazy"
               />
               <img
                 src="/projects/free-range-zoo.light.webp"
@@ -199,6 +205,7 @@ export default function ProjectsCarousel() {
                 src="/projects/subterra.ai.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="subterra.ai ui showcase"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
@@ -225,6 +232,7 @@ export default function ProjectsCarousel() {
                 src="/projects/fonio-seed-cv.webp"
                 className="h-auto max-h-full w-auto max-w-full object-contain"
                 alt="fonio seed computer vision showcase"
+                loading="lazy"
               />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-xs leading-tight md:mt-3 md:text-sm md:leading-snug">
