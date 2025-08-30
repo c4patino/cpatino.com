@@ -1,0 +1,66 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog", (p) => !p.data.draft);
+posts.sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
+
+const animation = "animate-in fade-in duration-1000 fill-mode-backwards";
+---
+
+<BaseLayout title="blog">
+  <div
+    class="grid h-full w-full grid-cols-1 md:grid-cols-4 md:place-items-center md:pb-18"
+  >
+    <div class="mb-8 flex items-center justify-center md:mb-0">
+      <h1
+        class={`${animation} slide-in-from-top-8 md:pl-8 md:slide-in-from-top-12 md:slide-in-from-top-0 tracking-light text-center text-3xl font-extrabold`}
+      >
+        blog
+      </h1>
+    </div>
+    <div
+      class={`${animation} slide-in-from-top-12 delay-250 col-span-3 flex w-full flex-col gap-6 px-4 md:px-8`}
+    >
+      {
+        posts.length === 0 ? (
+          <p class="text-muted-foreground text-center">No posts yet.</p>
+        ) : (
+          <ul class="grid gap-6">
+            {posts.map((p) => (
+              <li
+                class="border-border bg-card hover:bg-muted rounded-lg border p-6 transition-colors"
+                key={p.slug}
+              >
+                <a href={`/blog/${p.slug}`} class="block">
+                  <h2 class="text-xl font-bold">{p.data.title}</h2>
+                  <p class="text-muted-foreground text-sm">
+                    {new Date(p.data.pubDate).toLocaleDateString(undefined, {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                  </p>
+                  {p.data.description && (
+                    <p class="text-card-foreground mt-2">
+                      {p.data.description}
+                    </p>
+                  )}
+                  {p.data.tags?.length ? (
+                    <ul class="text-muted-foreground mt-3 flex flex-wrap gap-2 text-xs">
+                      {p.data.tags.map((t) => (
+                        <li class="bg-muted rounded px-2 py-0.5" key={t}>
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>
