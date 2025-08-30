@@ -93,6 +93,7 @@ export default function Navbar() {
     { label: "about", href: "/about" },
     { label: "experience", href: "/experience" },
     { label: "projects", href: "/projects" },
+    { label: "blog", href: "/blog" },
   ];
 
   return (
