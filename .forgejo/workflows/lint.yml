@@ -1,0 +1,73 @@
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  treefmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.1
+      - name: install nix
+        uses: https://github.com/cachix/install-nix-action@v31.8.4
+      - name: restore and save nix store
+        uses: https://github.com/nix-community/cache-nix-action@v6.1.3
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+          gc-max-store-size-linux: 1G
+          purge: true
+          purge-prefixes: nix-${{ runner.os }}-
+          purge-created: 0
+          purge-last-accessed: 0
+          purge-primary-key: never
+      - name: set up nix-community cachix
+        uses: https://github.com/cachix/cachix-action@v16
+        with:
+          name: nix-community
+      - name: setup node
+        uses: actions/setup-node@v6.1.0
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: install pnpm
+        uses: https://github.com/pnpm/action-setup@v4.2.0
+        with:
+          version: 10.24.0
+          run_install: true
+      - name: run treefmt
+        run: nix fmt -- --ci --excludes ".pnpm-store/*"
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.1
+      - name: setup node@6.1.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: install pnpm
+        uses: https://github.com/pnpm/action-setup@v4.2.0
+        with:
+          version: 10.24.0
+          run_install: true
+      - name: run eslint
+        run: pnpm run lint
+  tsc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.1
+      - name: setup node@6.1.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: install pnpm
+        uses: https://github.com/pnpm/action-setup@v4.2.0
+        with:
+          version: 10.24.0
+          run_install: true
+      - name: run tsc typechecking
+        run: pnpm run typecheck
