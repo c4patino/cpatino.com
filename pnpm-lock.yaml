@@ -86,6 +86,9 @@ importers:
       "@eslint/js":
         specifier: ^9.39.1
         version: 9.39.1
+      "@tailwindcss/typography":
+        specifier: ^0.5.19
+        version: 0.5.19(tailwindcss@4.1.17)
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
@@ -1857,6 +1860,14 @@ packages:
         integrity: sha512-F0F7d01fmkQhsTjXezGBLdrl1KresJTcI3DB8EkScCldyKp3Msz4hub4uyYaVnk88BAS1g5DQjjF6F5qczheLA==,
       }
     engines: { node: ">= 10" }
+
+  "@tailwindcss/typography@0.5.19":
+    resolution:
+      {
+        integrity: sha512-w31dd8HOx3k9vPtcQh5QHP9GwKcgbMp87j58qi6xgiBnFFtKEAgCWnDw4qUT8aHwkCp8bKvb/KGKWWHedP0AAg==,
+      }
+    peerDependencies:
+      tailwindcss: ">=3.0.0 || insiders || >=4.0.0-alpha.20 || >=4.0.0-beta.1"
 
   "@tailwindcss/vite@4.1.17":
     resolution:
@@ -4803,6 +4814,13 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  postcss-selector-parser@6.0.10:
+    resolution:
+      {
+        integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==,
+      }
+    engines: { node: ">=4" }
+
   postcss@8.5.6:
     resolution:
       {
@@ -5916,6 +5934,12 @@ packages:
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  util-deprecate@1.0.2:
+    resolution:
+      {
+        integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==,
+      }
 
   vfile-location@5.0.3:
     resolution:
@@ -7422,6 +7446,11 @@ snapshots:
       "@tailwindcss/oxide-wasm32-wasi": 4.1.17
       "@tailwindcss/oxide-win32-arm64-msvc": 4.1.17
       "@tailwindcss/oxide-win32-x64-msvc": 4.1.17
+
+  "@tailwindcss/typography@0.5.19(tailwindcss@4.1.17)":
+    dependencies:
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 4.1.17
 
   "@tailwindcss/vite@4.1.17(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2))":
     dependencies:
@@ -9687,6 +9716,11 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
+  postcss-selector-parser@6.0.10:
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
+
   postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
@@ -10456,6 +10490,8 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.1):
     dependencies:
       react: 19.2.1
+
+  util-deprecate@1.0.2: {}
 
   vfile-location@5.0.3:
     dependencies:
