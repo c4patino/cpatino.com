@@ -37,22 +37,22 @@ export default defineConfig([
     ...pluginReact.configs.flat.recommended,
     settings: {
       react: {
-        version: REACT_VERSION
-      }
-    }
+        version: REACT_VERSION,
+      },
+    },
   },
   {
     files: ["**/*.{jsx,tsx}"],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
-        }
-      }
+          jsx: true,
+        },
+      },
     },
     rules: {
       "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off"
-    }
+      "react/jsx-uses-react": "off",
+    },
   },
 ]);
