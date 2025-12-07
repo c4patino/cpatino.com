@@ -7,10 +7,11 @@
     "build": "astro build",
     "dev": "astro dev",
     "format": "prettier src --write --cache",
-    "preview": "astro preview",
-    "test": "echo \"No tests yet\" && exit 0",
     "lint": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "lint:fix": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\" --fix"
+    "preview": "astro preview",
+    "test": "echo \"No tests yet\" && exit 0",
+    "typecheck": "tsc -b",
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
