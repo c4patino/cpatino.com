@@ -1,0 +1,1 @@
+import{r as e,g as o}from"./index.D_V1ncUJ.js";import{r as s}from"./index.BUVYuSZh.js";function m(r){const t=e.useRef(r);return e.useEffect(()=>{t.current=r}),e.useMemo(()=>(...a)=>t.current?.(...a),[])}var n=globalThis?.document?e.useLayoutEffect:()=>{},u=s();const p=o(u);export{p as R,n as a,u as r,m as u};
