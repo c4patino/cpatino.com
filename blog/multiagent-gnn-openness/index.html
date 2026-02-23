@@ -1,0 +1,168 @@
+<!DOCTYPE html><script>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return "dark";
+  };
+
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attribute: true,
+      attributeFilter: ["class"],
+    });
+  }
+
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      location.reload();
+    }
+  });
+</script> <html lang="en"> <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline';"><meta name="robots" content="index, follow"><meta name="author" content="Ceferino Patino"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0f172a"><meta name="keywords" content="Ceferino Patino, cpatino, c4patino, C4 Patino"><meta name="description" content="Ceferino Patino (C4) – Software Engineer and FOSS contributor"><meta property="og:title" content="cpatino.com"><meta property="og:url" content="https://cpatino.com"><meta property="og:type" content="website"><meta name="og:description" content="Ceferino Patino (C4) – Software Engineer and FOSS contributor"><meta name="twitter:title" content="cpatino.com"><meta name="twitter:image" content="https://cpatino.com/profile.webp"><meta name="twitter:description" content="Ceferino Patino (C4) – Software Engineer and FOSS contributor"><link rel="canonical" href="https://cpatino.com"><title>Openness in Multiagent Systems: Lessons from Modeling with Graph Neural Networks | cpatino.com</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Preload LCP image --><link rel="preload" as="image" href="/profile.webp" type="image/webp" imagesrcset="/profile.webp 1x" imagesizes="(max-width: 128px) 100vw, 128px"><link rel="stylesheet" href="/_astro/about.CqlKFw_S.css"></head> <body> <div class="flex min-h-screen flex-col"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="rj1bt" prefix="r1" component-url="/_astro/header.CHphGsYE.js" component-export="default" renderer-url="/_astro/client.SlIoTHO_.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children><div><div class="hidden md:block"><header class="navbar hidden w-full px-6 py-4 shadow md:block"><div class="container mx-auto flex items-center justify-between"><div class="text-xl font-bold"><a href="/">Ceferino Patino | cpatino.com</a></div><nav class="border-bottom hidden md:block" aria-label="Main navigation"><nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-slot="navigation-menu" data-viewport="true" class="group/navigation-menu relative flex max-w-max flex-1 items-center justify-center"><div style="position:relative"><ul data-orientation="horizontal" data-slot="navigation-menu-list" class="group flex-1 list-none items-center justify-center flex gap-4" dir="ltr"><li data-slot="navigation-menu-item" class="relative"><a href="/" data-slot="navigation-menu-link" class="data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 px-4 py-2 hover:underline" data-radix-collection-item="">home</a></li><li data-slot="navigation-menu-item" class="relative"><a href="/about" data-slot="navigation-menu-link" class="data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 px-4 py-2 hover:underline" data-radix-collection-item="">about</a></li><li data-slot="navigation-menu-item" class="relative"><a href="/experience" data-slot="navigation-menu-link" class="data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 px-4 py-2 hover:underline" data-radix-collection-item="">experience</a></li><li data-slot="navigation-menu-item" class="relative"><a href="/projects" data-slot="navigation-menu-link" class="data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 px-4 py-2 hover:underline" data-radix-collection-item="">projects</a></li><li data-slot="navigation-menu-item" class="relative"><a href="/blog" data-slot="navigation-menu-link" class="data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 px-4 py-2 hover:underline" data-radix-collection-item="">blog</a></li><button data-slot="dropdown-menu-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" type="button" id="radix-_r1R_9p_" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></ul></div><div class="absolute top-full left-0 isolate z-50 flex justify-center"></div></nav></nav></div></header></div><div class="md:hidden"><div class="fixed bottom-4 left-4 z-999 md:hidden"><button data-slot="sheet-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 size-9 navbar-trigger" aria-label="Open menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r1R_2_" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button></div></div></div><!--astro:end--></astro-island> <main class="flex flex-1 flex-col items-stretch justify-center">  <article class="prose prose-invert prose-headings:font-extrabold prose-sm sm:prose-base mx-auto max-w-none px-4 py-6 pb-16 sm:max-w-3xl sm:px-6 sm:py-8 lg:px-8"> <header class="not-prose mb-6 sm:mb-8"> <h1 class="text-xl leading-tight font-extrabold tracking-tight sm:text-2xl md:text-3xl"> Openness in Multiagent Systems: Lessons from Modeling with Graph Neural Networks </h1> <p class="text-muted-foreground mt-3 text-sm"> Dec 06, 2025 </p> <p class="text-muted-foreground mt-3 text-sm leading-relaxed sm:text-base"> Reflections on simulating open environments and using GNNs to model dynamic, unpredictable multiagent systems. </p> <ul class="text-muted-foreground mt-4 flex flex-wrap gap-2 text-xs"> <li class="bg-muted rounded px-2 py-1">multiagent systems</li><li class="bg-muted rounded px-2 py-1">GNN</li><li class="bg-muted rounded px-2 py-1">openness</li><li class="bg-muted rounded px-2 py-1">research</li><li class="bg-muted rounded px-2 py-1">simulation</li> </ul> </header> <div class="prose-content"> <h2 id="introduction">Introduction</h2>
+<p>This blog post is a reflection on my ongoing research into multiagent
+systems-computer simulations where agents interact in unpredictable
+environments—and how I’m using graph neural networks (GNNs) to model them.
+Here, I share what “openness” means, the challenges I’ve faced, surprises along
+the way, and how this experience is shaping my perspective and future goals.</p>
+<p>My aim is not only to sum up what I’ve learned so far technically, but also to
+share personal growth and insights from the process. I hope this reflection is
+useful to anyone interested in multiagent systems, GNNs, or the messy reality
+of modeling open environments.</p>
+<h2 id="what-is-openness-in-multiagent-systems">What is “Openness” in Multiagent Systems?</h2>
+<p>Openness is all about change and unpredictability. In an open system, things
+don’t stay the same for long. Here are a few ways that can happen:</p>
+<ul>
+<li><strong>Agent Openness:</strong> The “agents” in the system-like people, robots, or
+cars-can show up or leave whenever they want. Imagine a ride-sharing app:
+drivers and riders come and go all the time. Or think about a team of
+firefighters-sometimes new people join the team, and sometimes someone has to
+leave early.</li>
+<li><strong>Task Openness:</strong> The jobs that need doing can appear or disappear,
+sometimes randomly or because of something happening in the world. For
+example, after a football game ends, suddenly a bunch of people need rides
+home. Or in a wildfire, new fires can start unexpectedly, creating new tasks
+for the team.</li>
+<li><strong>Frame Openness:</strong> What an agent can do might change. Maybe a firefighter’s
+equipment breaks, so they can’t help as much, or they get new gear and become
+more effective. In other words, the abilities and resources of each agent
+aren’t fixed—they can change over time.</li>
+</ul>
+<p>All this makes it much harder to predict what will happen next, or to design
+systems that can handle whatever comes their way. In closed systems, you know
+exactly who’s involved and what needs to be done. In open systems, you have to
+be ready for surprises.</p>
+<h2 id="why-does-openness-matter">Why Does Openness Matter?</h2>
+<p>Openness isn’t just a computer science problem—it’s everywhere in real life.
+Think about:</p>
+<ul>
+<li><strong>Public transportation:</strong> Buses and trains have to deal with passengers
+coming and going, traffic jams, and sudden changes in demand.</li>
+<li><strong>Disaster response:</strong> Teams must adapt to new emergencies, changing team
+members, and unpredictable conditions.</li>
+<li><strong>Online platforms:</strong> Social networks, games, and apps constantly see new
+users join, old users leave, and new features or problems pop up.</li>
+</ul>
+<p>If we want to build systems that work well in the real world, we need to
+understand and model openness.</p>
+<h2 id="modeling-openness-with-graph-neural-networks">Modeling Openness with Graph Neural Networks</h2>
+<p>To try to make sense of these open systems, I used something called a graph
+neural network (GNN). You can think of a GNN as a way for a computer to look at
+a big web of connections—who’s connected to what, who’s working on which task,
+and so on—and learn patterns from it.</p>
+<p>Imagine a map with dots for each agent and lines showing how they’re connected
+or what tasks they’re working on. The GNN helps the computer “see” this map and
+figure out how everyone should act, even as the map changes.</p>
+<p>But modeling openness with GNNs wasn’t easy! Here’s why:</p>
+<ul>
+<li><strong>The web keeps changing:</strong> Since agents and tasks can come and go, the graph
+of interactions between entities in the environment is always shifting. The
+model has to keep up with modeling all of these interactions.</li>
+<li><strong>Surprises happen:</strong> Sometimes, a bunch of new tasks show up at once, or an
+agent suddenly leaves. The model needs to be flexible.</li>
+<li><strong>Abilities change:</strong> If an agent gets stronger or weaker, the model has to
+notice and adapt.</li>
+</ul>
+<p><img src="/blog/multiagent-gnn-openness/hgnn_maddpg.png" alt="HGNN-MADDPG Architecture">
+<em>Figure: The architecture I used for my research. It helps the system keep
+track of all the changing connections between agents and tasks.</em></p>
+<h2 id="a-real-world-example-fighting-wildfires">A Real-World Example: Fighting Wildfires</h2>
+<p>To test my ideas, I used a simulation inspired by wildfire response. Imagine a
+team of firefighters working together to put out fires. Here’s how openness
+shows up:</p>
+<ul>
+<li><strong>Agents:</strong> Firefighters might run out of suppressant and have to leave, or
+new firefighters might arrive from refilling their suppressants.</li>
+<li><strong>Tasks:</strong> New fires can start at any time, and old ones can be put out or
+burn out.</li>
+<li><strong>Frames:</strong> A firefighter’s equipment might break or degrade, or they might get new
+tools. This can make them less effective in their work and decrease their capabilities.</li>
+</ul>
+<p>The system has to be able to globally coordinate in order to put out as many
+fires as possible according to a pre-determined priority function, while at the
+same time not having any one agent have to think about the complexity of the
+entire system. This means that each agent has to decide which teammates are
+relevant to the tasks that they can see and want to work on, and adapt as their
+collaborators enter and leave the environment and capabilities change. It’s a
+lot like real life-plans change, people come and go, and new problems pop up.</p>
+<h2 id="what-was-hard-what-surprised-me-and-what-i-learned">What Was Hard, What Surprised Me, and What I Learned</h2>
+<h3 id="what-was-hard">What Was Hard</h3>
+<ul>
+<li><strong>Building a flexible model:</strong> I had to design a system that could handle all
+the changes without starting over every time. It’s like trying to organize a
+team when you don’t know who will show up or what jobs will need doing.</li>
+<li><strong>Staying stable:</strong> When things changed suddenly—like a bunch of new fires
+starting—the system sometimes got confused or made bad decisions.</li>
+<li><strong>Creating realistic tests:</strong> I wanted my simulations to feel like real life,
+with all its unpredictability. That meant thinking carefully about how agents
+and tasks could change.</li>
+</ul>
+<h3 id="what-surprised-me">What Surprised Me</h3>
+<ul>
+<li><strong>Simple rules sometimes win:</strong> In really unpredictable situations, sometimes
+basic strategies (like “help the closest fire”) worked better than
+complicated ones.</li>
+<li><strong>Details matter:</strong> The way I set up the “openness” in my tests made a huge
+difference in how well the model worked. Small changes could have big
+effects.</li>
+<li><strong>Good data is crucial:</strong> Knowing exactly when agents and tasks appear or
+disappear helped the model make better decisions.</li>
+</ul>
+<h3 id="what-i-learned">What I Learned</h3>
+<ul>
+<li><strong>Flexibility is key:</strong> Models (and people!) need to be ready for change. The
+best systems aren’t rigid—they adapt.</li>
+<li><strong>Embrace the mess:</strong> Real-world systems are rarely neat and predictable.
+Accepting the messiness leads to better solutions.</li>
+<li><strong>Teamwork matters:</strong> Whether you’re an agent in a simulation or a researcher
+in a lab, working together and sharing ideas makes a big difference.</li>
+</ul>
+<h2 id="how-this-project-changed-my-perspective">How This Project Changed My Perspective</h2>
+<p>Before this project, I thought most computer models worked best when everything
+was predictable. Now, I see that the real world is full of surprises, and the
+best models are the ones that can handle change. I’m more comfortable now
+working with things that don’t always go as planned, and I see the value in
+building systems that can adapt on the fly.</p>
+<p>I also learned how important it is to explain these ideas in simple terms. If
+we want our work to help others—whether in research, industry, or everyday
+life—we need to make it understandable.</p>
+<h2 id="looking-ahead">Looking Ahead</h2>
+<p>The skills and insights I gained from this project will help me in future
+classes, research, and even jobs. I know how to:</p>
+<ul>
+<li>Work with dynamic, unpredictable systems.</li>
+<li>Build models that can adapt and learn as things change.</li>
+<li>Communicate complex ideas in a way that makes sense to everyone.</li>
+</ul>
+<p>I’m excited to keep exploring these ideas and see how they can be used in other
+fields-like transportation, healthcare, or even social networks. Modeling open
+environments is challenging, but it’s also exciting and full of surprises. If
+you have questions or want to chat more about this kind of research, feel free
+to reach out!</p> </div> </article>  </main> </div> <footer class="navbar mt-auto grid w-full place-items-center border-t py-6"> <p>
+made by <a class="hover:text-primary" href="https://github.com/c4patino/">@c4patino</a> </p> <p> <a class="hover:text-primary" href="https://github.com/c4patino/cpatino.com/">site source</a> </p> </footer> </body></html>
