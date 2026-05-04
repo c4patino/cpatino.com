@@ -20,5 +20,23 @@
     <lastmod>2025-07-08</lastmod>
     <priority>0.8</priority>
   </url>
-</urlset>
 
+  <!-- Experience -->
+  <url>
+    <loc>https://cpatino.com/experience</loc>
+    <lastmod>2025-07-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://cpatino.com/blog</loc>
+    <lastmod>2025-07-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpatino.com/blog/multiagent-gnn-openness</loc>
+    <lastmod>2025-07-08</lastmod>
+    <priority>0.4</priority>
+  </url>
+</urlset>
