@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.1.0
       - name: install nix
-        uses: https://github.com/cachix/install-nix-action@v31.8.4
+        uses: https://github.com/cachix/install-nix-action@v31.11.0
       - name: restore and save nix store
-        uses: https://github.com/nix-community/cache-nix-action@v6.1.3
+        uses: https://github.com/nix-community/cache-nix-action@v7
         with:
           primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
           restore-prefixes-first-match: nix-${{ runner.os }}-
@@ -22,52 +22,55 @@ jobs:
           purge-last-accessed: 0
           purge-primary-key: never
       - name: set up nix-community cachix
-        uses: https://github.com/cachix/cachix-action@v16
+        uses: https://github.com/cachix/cachix-action@v17
         with:
           name: nix-community
-      - name: setup node
-        uses: actions/setup-node@v6.1.0
-        with:
-          node-version: 22
-          cache: "pnpm"
       - name: install pnpm
-        uses: https://github.com/pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.0.6
         with:
           version: 10.24.0
-          run_install: true
+          cache: true
+      - name: setup node
+        uses: actions/setup-node@v6.5.0
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: pnpm install
       - name: run treefmt
         run: nix fmt -- --ci --excludes ".pnpm-store/*"
   eslint:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v6.0.1
-      - name: setup node@6.1.0
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "pnpm"
+        uses: actions/checkout@v6.1.0
       - name: install pnpm
-        uses: https://github.com/pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.0.6
         with:
           version: 10.24.0
-          run_install: true
+          cache: true
+      - name: setup node
+        uses: actions/setup-node@v6.5.0
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: pnpm install
       - name: run eslint
         run: pnpm run lint
   tsc:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v6.0.1
-      - name: setup node@6.1.0
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "pnpm"
+        uses: actions/checkout@v6.1.0
       - name: install pnpm
-        uses: https://github.com/pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.0.6
         with:
           version: 10.24.0
-          run_install: true
+          cache: true
+      - name: setup node
+        uses: actions/setup-node@v6.5.0
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: pnpm install
       - name: run tsc typechecking
         run: pnpm run typecheck
