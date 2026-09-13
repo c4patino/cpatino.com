@@ -7,18 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v6.0.1
-      - name: cache node modules
-        uses: actions/cache@v4.3.0
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            node-modules-${{ runner.os }}-
+        uses: actions/checkout@v6.1.0
       - name: install pnpm
-        uses: https://github.com/pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.0.6
         with:
-          version: 10.15.1
-          run_install: true
+          version: 10.24.0
+          cache: true
+      - name: install dependencies
+        run: pnpm install
       - name: run tests
         run: pnpm test
