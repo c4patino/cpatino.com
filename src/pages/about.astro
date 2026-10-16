@@ -48,14 +48,26 @@ const animation =
       <section class={`${animation} delay-300 w-full`}>
         <h2 class="mb-4 text-2xl font-bold">Education</h2>
         <div class="mb-4">
-          <h3 class="text-xl font-semibold">
-            University of Nebraska — Lincoln
-          </h3>
-          <p class="text-sm md:text-base">B.S. Computer Science (2024-2026)</p>
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between">
+            <h3 class="text-xl font-semibold">
+              University of Nebraska — Lincoln
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              Lincoln, NE · May 2024 — May 2026
+            </p>
+          </div>
+          <p class="text-sm md:text-base">B.S. Computer Science</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold">St. Louis Community College</h3>
-          <p class="text-sm md:text-base">Transfer (2022-2024)</p>
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between">
+            <h3 class="text-xl font-semibold">
+              St. Louis Community College
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              St. Louis, MO · May 2022 — May 2024
+            </p>
+          </div>
+          <p class="text-sm md:text-base">Transfer</p>
         </div>
       </section>
 
