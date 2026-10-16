@@ -36,7 +36,10 @@
 
           web-lint =
             pkgs.runCommand "web-lint" {
-              buildInputs = [pkgs.nodejs pkgs.nodePackages.pnpm];
+              buildInputs = with pkgs; [
+                nodejs
+                pnpm
+              ];
               src = ./.;
               deps = self.packages.${system}.web.pnpmDeps;
             } ''
@@ -49,7 +52,10 @@
 
           web-typecheck =
             pkgs.runCommand "web-typecheck" {
-              buildInputs = [pkgs.nodejs pkgs.nodePackages.pnpm];
+              buildInputs = with pkgs; [
+                nodejs
+                pnpm
+              ];
               src = ./.;
               deps = self.packages.${system}.web.pnpmDeps;
             } ''
@@ -82,7 +88,7 @@
 
                 packages = with pkgs; [
                   alejandra
-                  nodePackages.prettier
+                  prettier
                 ];
 
                 process.manager.implementation = "mprocs";
@@ -119,9 +125,9 @@
 
             packages = with pkgs; [
               importNpmLock.hooks.linkNodeModulesHook
-              nodePackages.pnpm
-              nodePackages.prettier
               nodejs
+              pnpm
+              prettier
             ];
 
             npmDeps = pkgs.importNpmLock.buildNodeModules {
@@ -147,7 +153,7 @@
 
             buildInputs = with pkgs; [
               nodejs
-              nodePackages.pnpm
+              pnpm
               pnpm.configHook
             ];
 

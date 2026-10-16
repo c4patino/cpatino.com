@@ -30,9 +30,9 @@ const animation = "animate-in fade-in duration-1000 fill-mode-backwards";
             {posts.map((p) => (
               <li
                 class="border-border bg-card hover:bg-muted rounded-lg border p-6 transition-colors"
-                key={p.slug}
+                key={p.id}
               >
-                <a href={`/blog/${p.slug}`} class="block">
+                <a href={`/blog/${p.id}`} class="block">
                   <h2 class="text-xl font-bold">{p.data.title}</h2>
                   <p class="text-muted-foreground text-sm">
                     {new Date(p.data.pubDate).toLocaleDateString(undefined, {
