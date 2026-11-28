@@ -4,6 +4,10 @@ import Header from "@/components/header";
 import Footer from "@/components/footer.astro";
 
 const { title, description, canonical } = Astro.props;
+
+const DEFAULT_DESCRIPTION =
+  "Ceferino Patino (C4) – Software Engineer and FOSS contributor";
+const DEFAULT_CANONICAL = "https://cpatino.com";
 ---
 
 <script is:inline>
@@ -50,30 +54,21 @@ const { title, description, canonical } = Astro.props;
       name="keywords"
       content="Ceferino Patino, cpatino, c4patino, C4 Patino"
     />
-    <meta
-      name="description"
-      content={description ||
-        "Ceferino Patino (C4) – Software Engineer and FOSS contributor"}
-    />
+    <meta name="description" content={description || DEFAULT_DESCRIPTION} />
 
     <meta property="og:title" content="cpatino.com" />
-    <meta property="og:url" content={canonical || "https://cpatino.com"} />
+    <meta property="og:url" content={canonical || DEFAULT_CANONICAL} />
     <meta property="og:type" content="website" />
-    <meta
-      name="og:description"
-      content={description ||
-        "Ceferino Patino (C4) – Software Engineer and FOSS contributor"}
-    />
+    <meta name="og:description" content={description || DEFAULT_DESCRIPTION} />
 
     <meta name="twitter:title" content="cpatino.com" />
     <meta name="twitter:image" content="https://cpatino.com/profile.webp" />
     <meta
       name="twitter:description"
-      content={description ||
-        "Ceferino Patino (C4) – Software Engineer and FOSS contributor"}
+      content={description || DEFAULT_DESCRIPTION}
     />
 
-    <link rel="canonical" href={canonical || "https://cpatino.com"} />
+    <link rel="canonical" href={canonical || DEFAULT_CANONICAL} />
     <title>{title ? `${title} | cpatino.com` : "cpatino.com"}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
