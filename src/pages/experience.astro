@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/base.astro";
 import CenterLayout from "@/layouts/center.astro";
+import TimelineEntry from "@/components/timeline-entry.astro";
 
 const animation =
   "animate-in fade-in duration-1000 ease-out fill-mode-backwards";
@@ -22,345 +23,158 @@ const animation =
       </h1>
 
       <section class={`${animation} slide-in-from-top-12 delay-100 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Work Experience</h2>
         <div class="flex flex-col gap-8">
-          <!-- Mutual of Omaha — Application Developer -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">Mutual of Omaha</h2>
-            <h3 class="text-muted-foreground text-lg">
-              Application Developer — Java, Groovy, Angular, TypeScript, Python,
-              Oracle SQL
-            </h3>
-            <p class="text-muted-foreground text-sm">
-              Remote · August 2026 — October 2026
-            </p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Drove a previously failed two-year deployment to successful
-                release by mirroring production traffic via nginx into a test
-                environment and diffing payloads and stack traces, surfacing 50+
-                breaking bugs in two weeks
-              </li>
-              <li>
-                Continued to own and extend Python deployment orchestration, CI
-                pipelines, and cross-team tooling while taking on new
-                application development beyond internship scope, further cutting
-                CI build/scan cycles from 20 to 10 minutes
-              </li>
-              <li>
-                Developed and maintained enterprise applications in Java and
-                Groovy, building RESTful APIs and backend services supporting
-                business operations
-              </li>
-              <li>
-                Spearheaded a multi-stage modernization of the production
-                codebase, upgrading Java from 8 to 17 to 21, Groovy from 2 to 3,
-                and Spring Boot from 2.5.4 to 4.1.0 while keeping services
-                stable and regression-free throughout the migration
-              </li>
-              <li>
-                Built responsive front-end interfaces with Angular, JavaScript,
-                and TypeScript for internal stakeholders
-              </li>
-              <li>
-                Stabilized overnight Oracle SQL reporting and batch jobs (6 PM–6
-                AM window), cutting incidents from 120 to 17 per four months
-                (about 86%) by surfacing failures at 10–11 PM instead of 2–3 AM
-                so jobs complete by midnight
-              </li>
-            </ul>
-          </div>
-
-          <!-- Mutual of Omaha — I/S Intern -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">Mutual of Omaha</h2>
-            <h3 class="text-muted-foreground text-lg">
-              I/S Intern — Python, CI/CD, DevOps Tooling
-            </h3>
-            <p class="text-muted-foreground text-sm">
-              Remote · May 2026 — July 2026
-            </p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Replaced a 12-page manual deployment runbook spanning 6–10
-                machines across 3 test environments and production with a Python
-                orchestration tool, turning a recurring two-week quarterly task
-                into a single automated run and eliminating configuration drift
-              </li>
-              <li>
-                Built and maintained CI pipelines that automated build, test,
-                and release validation, cutting after-hours deployment from
-                60–90 minutes to under 5 minutes and build/scan cycles from 30
-                to 20 minutes
-              </li>
-              <li>
-                Partnered with peer teams to identify shared pain points and
-                distribute reusable tooling and solutions, standardizing
-                delivery practices across groups
-              </li>
-            </ul>
-          </div>
-
-          <!-- OASYS Lab -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">
-              OASYS Lab — University of Nebraska — Lincoln
-            </h2>
-            <h3 class="text-muted-foreground text-lg">
-              Undergraduate Researcher — Python, PyTorch, Rust, CUDA, Maturin
-            </h3>
-            <p class="text-muted-foreground text-sm">May 2024 — August 2026</p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Developed <code>free-range-zoo</code>, an open-environment MARL
-                benchmark suite (wildfire, cybersecurity, rideshare) used by 20+
-                researchers at international institutions
-              </li>
-              <li>
-                Built <code>free-range-rust</code>, a Rust+CUDA backend with
-                Maturin/Python bindings, doubling RL environment throughput over
-                the Python implementation
-              </li>
-              <li>
-                Implemented dynamic agent/task/frame adaptation enabling
-                open-system evaluation of MARL policies
-              </li>
-              <li>
-                Co-led MOASEI at AAMAS 2025, an open-agent/task MARL competition
-                with 10+ international teams; co-authored the technical report
-                (arXiv:2507.05469)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Raman Lab -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">
-              Raman Lab — Washington University
-            </h2>
-            <h3 class="text-muted-foreground text-lg">
-              Software Developer — C++, MPI, HDF5, OpenCV
-            </h3>
-            <p class="text-muted-foreground text-sm">June 2024 — May 2026</p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Developed real-time imaging software for a 3D 2-photon
-                lightsheet microscope processing 20 GB/s of image data
-              </li>
-              <li>
-                Designed parallel MPI/HDF5 data acquisition and OpenCV pipelines
-                for volumetric dataset processing
-              </li>
-            </ul>
-          </div>
-
-          <!-- CSCE361 Software Engineering -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">
-              CSCE361 Software Engineering — University of Nebraska — Lincoln
-            </h2>
-            <h3 class="text-muted-foreground text-lg">
-              Undergraduate TA under Dr. Bhuvana Gopal — C#, .NET, React,
-              Node.js, Agile
-            </h3>
-            <p class="text-muted-foreground text-sm">August 2025 — May 2026</p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Supported 30–60 students per semester in labs, assignments, and
-                team projects for CSCE361, a course on large-scale software
-                development and engineering best practices
-              </li>
-              <li>
-                Taught the course technology stack and software engineering
-                principles through weekly walkthroughs and office hours,
-                covering C#, .NET Framework, EF Core, React, Node.js,
-                JavaScript, TypeScript, SOLID design, and Scrum
-              </li>
-              <li>
-                Graded quizzes, exams, and project deliverables, providing
-                feedback on requirements analysis, design, testing, and
-                maintenance
-              </li>
-            </ul>
-          </div>
-
-          <!-- Danforth Plant Science Center -->
-          <div class="border-primary relative border-l-2 pl-6">
-            <div
-              class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-            >
-            </div>
-            <h2 class="text-2xl font-bold">Danforth Plant Science Center</h2>
-            <h3 class="text-muted-foreground text-lg">
-              Software Developer — Python, OpenCV, PyTorch, AWS, Docker
-            </h3>
-            <p class="text-muted-foreground text-sm">
-              December 2023 — August 2024
-            </p>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-              <li>
-                Developed computer vision software for plant phenotyping,
-                segmenting high-resolution underground root imagery to compute
-                volumetric root estimates at 97% accuracy
-              </li>
-              <li>
-                Maintained AWS infrastructure with developer teams processing 40
-                GB hyperspectral aerial crop imagery campaigns captured at 10
-                fps from a high-throughput drone data collection system
-              </li>
-            </ul>
-          </div>
+          <TimelineEntry
+            title="Mutual of Omaha"
+            subtitle="Application Developer — Java, Groovy, Angular, TypeScript, Python, Oracle SQL"
+            date="Remote · August 2026 — October 2026"
+            items={[
+              "Drove a previously failed two-year deployment to successful release by mirroring production traffic via nginx into a test environment and diffing payloads and stack traces, surfacing 50+ breaking bugs in two weeks",
+              "Continued to own and extend Python deployment orchestration, CI pipelines, and cross-team tooling while taking on new application development beyond internship scope, further cutting CI build/scan cycles from 20 to 10 minutes",
+              "Developed and maintained enterprise applications in Java and Groovy, building RESTful APIs and backend services supporting business operations",
+              "Spearheaded a multi-stage modernization of the production codebase, upgrading Java from 8 to 17 to 21, Groovy from 2 to 3, and Spring Boot from 2.5.4 to 4.1.0 while keeping services stable and regression-free throughout the migration",
+              "Built responsive front-end interfaces with Angular, JavaScript, and TypeScript for internal stakeholders",
+              "Stabilized overnight Oracle SQL reporting and batch jobs (6 PM–6 AM window), cutting incidents from 120 to 17 per four months (about 86%) by surfacing failures at 10–11 PM instead of 2–3 AM so jobs complete by midnight",
+            ]}
+          />
+          <TimelineEntry
+            title="Mutual of Omaha"
+            subtitle="I/S Intern — Python, CI/CD, DevOps Tooling"
+            date="Remote · May 2026 — July 2026"
+            items={[
+              "Replaced a 12-page manual deployment runbook spanning 6–10 machines across 3 test environments and production with a Python orchestration tool, turning a recurring two-week quarterly task into a single automated run and eliminating configuration drift",
+              "Built and maintained CI pipelines that automated build, test, and release validation, cutting after-hours deployment from 60–90 minutes to under 5 minutes and build/scan cycles from 30 to 20 minutes",
+              "Partnered with peer teams to identify shared pain points and distribute reusable tooling and solutions, standardizing delivery practices across groups",
+            ]}
+          />
+          <TimelineEntry
+            title="OASYS Lab — University of Nebraska — Lincoln"
+            subtitle="Undergraduate Researcher — Python, PyTorch, Rust, CUDA, Maturin"
+            date="May 2024 — August 2026"
+            items={[
+              "Developed <code>free-range-zoo</code>, an open-environment MARL benchmark suite (wildfire, cybersecurity, rideshare) used by 20+ researchers at international institutions",
+              "Built <code>free-range-rust</code>, a Rust+CUDA backend with Maturin/Python bindings, doubling RL environment throughput over the Python implementation",
+              "Implemented dynamic agent/task/frame adaptation enabling open-system evaluation of MARL policies",
+              "Co-led MOASEI at AAMAS 2025, an open-agent/task MARL competition with 10+ international teams; co-authored the technical report (arXiv:2507.05469)",
+            ]}
+          />
+          <TimelineEntry
+            title="Raman Lab — Washington University"
+            subtitle="Software Developer — C++, MPI, HDF5, OpenCV"
+            date="June 2024 — May 2026"
+            items={[
+              "Developed real-time imaging software for a 3D 2-photon lightsheet microscope processing 20 GB/s of image data",
+              "Designed parallel MPI/HDF5 data acquisition and OpenCV pipelines for volumetric dataset processing",
+            ]}
+          />
+          <TimelineEntry
+            title="CSCE361 Software Engineering — University of Nebraska — Lincoln"
+            subtitle="Undergraduate TA under Dr. Bhuvana Gopal — C#, .NET, React, Node.js, Agile"
+            date="August 2025 — May 2026"
+            items={[
+              "Supported 30–60 students per semester in labs, assignments, and team projects for CSCE361, a course on large-scale software development and engineering best practices",
+              "Taught the course technology stack and software engineering principles through weekly walkthroughs and office hours, covering C#, .NET Framework, EF Core, React, Node.js, JavaScript, TypeScript, SOLID design, and Scrum",
+              "Graded quizzes, exams, and project deliverables, providing feedback on requirements analysis, design, testing, and maintenance",
+            ]}
+          />
+          <TimelineEntry
+            title="Danforth Plant Science Center"
+            subtitle="Software Developer — Python, OpenCV, PyTorch, AWS, Docker"
+            date="December 2023 — August 2024"
+            items={[
+              "Developed computer vision software for plant phenotyping, segmenting high-resolution underground root imagery to compute volumetric root estimates at 97% accuracy",
+              "Maintained AWS infrastructure with developer teams processing 40 GB hyperspectral aerial crop imagery campaigns captured at 10 fps from a high-throughput drone data collection system",
+            ]}
+          />
         </div>
       </section>
 
       <section class={`${animation} slide-in-from-top-12 delay-200 w-full`}>
         <h2 class="mb-4 text-2xl font-bold">Open Source Contributions</h2>
-        <div class="border-primary relative mb-6 border-l-2 pl-6">
-          <div
-            class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-          >
-          </div>
-          <h3 class="text-xl font-bold">nixpkgs — NixOS Project</h3>
-          <p class="text-muted-foreground text-lg">
-            Contributor & Package Maintainer
-          </p>
-          <p class="text-muted-foreground text-sm">May 2025 — Present</p>
-          <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-            <li>
-              Landed 50+ merged PRs across nixpkgs, spanning new packages,
-              version updates, and code reviews
-            </li>
-            <li>
-              Review community contributions and validate builds to keep
-              packages reproducible across supported platforms
-            </li>
-          </ul>
-        </div>
-        <div class="border-primary relative mb-6 border-l-2 pl-6">
-          <div
-            class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-          >
-          </div>
-          <h3 class="text-xl font-bold">nixvim — Modular Neovim for Nix</h3>
-          <p class="text-muted-foreground text-lg">Maintainer</p>
-          <p class="text-muted-foreground text-sm">May 2025 — Present</p>
-          <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-            <li>
-              Maintain Nixvim, a declarative Neovim configuration framework for
-              Nix, reviewing community PRs for plugin modules and documentation
-            </li>
-            <li>
-              Add and update plugin support for popular Vim/Neovim integrations
-              and improve community-facing docs
-            </li>
-          </ul>
-        </div>
-        <div class="border-primary relative mb-6 border-l-2 pl-6">
-          <div
-            class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-          >
-          </div>
-          <h3 class="text-xl font-bold">Turso — Distributed Edge Database</h3>
-          <p class="text-muted-foreground text-lg">
-            Contributor & Package Maintainer
-          </p>
-          <p class="text-muted-foreground text-sm">2025</p>
-          <ul class="mt-2 list-disc space-y-2 pl-5 text-sm md:text-base">
-            <li>
-              Fixed a core reliability bug in Turso, a distributed edge database
-              built on libSQL, improving correctness for production users
-            </li>
-            <li>
-              Collaborated with upstream maintainers to review, test, and merge
-              the fix into the main codebase
-            </li>
-          </ul>
-        </div>
+        <TimelineEntry
+          title="nixpkgs — NixOS Project"
+          subtitle="Contributor & Package Maintainer"
+          date="May 2025 — Present"
+          items={[
+            "Landed 50+ merged PRs across nixpkgs, spanning new packages, version updates, and code reviews",
+            "Review community contributions and validate builds to keep packages reproducible across supported platforms",
+          ]}
+        />
+        <TimelineEntry
+          title="nixvim — Modular Neovim for Nix"
+          subtitle="Maintainer"
+          date="May 2025 — Present"
+          items={[
+            "Maintain Nixvim, a declarative Neovim configuration framework for Nix, reviewing community PRs for plugin modules and documentation",
+            "Add and update plugin support for popular Vim/Neovim integrations and improve community-facing docs",
+          ]}
+        />
+        <TimelineEntry
+          title="Turso — Distributed Edge Database"
+          subtitle="Contributor & Package Maintainer"
+          date="2025"
+          items={[
+            "Fixed a core reliability bug in Turso, a distributed edge database built on libSQL, improving correctness for production users",
+            "Collaborated with upstream maintainers to review, test, and merge the fix into the main codebase",
+          ]}
+        />
+      </section>
+
+      <section class={`${animation} slide-in-from-top-12 delay-400 w-full`}>
+        <h2 class="mb-4 text-2xl font-bold">Education</h2>
+        <TimelineEntry
+          title="University of Nebraska — Lincoln"
+          subtitle="B.S. Computer Science"
+          date="Lincoln, NE · May 2024 — May 2026"
+          items={[]}
+        />
+        <TimelineEntry
+          title="St. Louis Community College"
+          subtitle="Transfer"
+          date="St. Louis, MO · May 2022 — May 2024"
+          items={[]}
+        />
       </section>
 
       <section class={`${animation} slide-in-from-top-12 delay-300 w-full`}>
         <h2 class="mb-4 text-2xl font-bold">Publications</h2>
-        <div class="border-primary relative mb-6 border-l-2 pl-6">
-          <div
-            class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-          >
+        <TimelineEntry
+          title="Second MOASEI Competition at AAMAS'2026: A Technical Report"
+          subtitle="Patino C., Billings T., Abadi A., Redder D., Eck A., Doshi P., Soh L."
+          date="arXiv:2607.03399 · 2026"
+          items={[
+            "A technical report on the second Methods for Open Agent Systems Evaluation Initiative Competition held at AAMAS'2026, covering the competition framework, participating teams, and evaluation results.",
+          ]}
+        >
+          <div class="mt-1">
+            <a
+              href="https://arxiv.org/abs/2607.03399"
+              target="_blank"
+              class="text-primary text-sm hover:underline"
+            >
+              arXiv:2607.03399
+            </a>
           </div>
-          <h3 class="text-xl font-bold">
-            Second MOASEI Competition at AAMAS'2026: A Technical Report
-          </h3>
-          <div class="mt-1 flex flex-col gap-1">
-            <p class="text-muted-foreground text-sm italic">
-              Patino C., Billings T., Abadi A., Redder D., Eck A., Doshi P., Soh
-              L.
-            </p>
-            <div class="flex items-center gap-2">
-              <a
-                href="https://arxiv.org/abs/2607.03399"
-                target="_blank"
-                class="text-primary text-sm hover:underline"
-              >
-                arXiv:2607.03399
-              </a>
-              <span class="text-muted-foreground text-sm">2026</span>
-            </div>
-            <p class="mt-1 text-sm">
-              A technical report on the second Methods for Open Agent Systems
-              Evaluation Initiative Competition held at AAMAS'2026, covering the
-              competition framework, participating teams, and evaluation
-              results.
-            </p>
+        </TimelineEntry>
+        <TimelineEntry
+          title="Inaugural MOASEI Competition at AAMAS'2025: A Technical Report"
+          subtitle="Patino C., Billings T., Abadi A., Redder D., Eck A., Doshi P., Soh L."
+          date="arXiv:2507.05469 · 2025"
+          items={[
+            "A technical report on the first Methods for Open Agent Systems Evaluation Initiative Competition and Intelligence competition held at AAMAS'2025, detailing the competition framework, participating teams, and evaluation results.",
+          ]}
+        >
+          <div class="mt-1">
+            <a
+              href="https://arxiv.org/abs/2507.05469"
+              target="_blank"
+              class="text-primary text-sm hover:underline"
+            >
+              arXiv:2507.05469
+            </a>
           </div>
-        </div>
-        <div class="border-primary relative border-l-2 pl-6">
-          <div
-            class="bg-primary absolute top-2 -left-[7px] h-3 w-3 rounded-full"
-          >
-          </div>
-          <h3 class="text-xl font-bold">
-            Inaugural MOASEI Competition at AAMAS'2025: A Technical Report
-          </h3>
-          <div class="mt-1 flex flex-col gap-1">
-            <p class="text-muted-foreground text-sm italic">
-              Patino C., Billings T., Abadi A., Redder D., Eck A., Doshi P., Soh
-              L.
-            </p>
-            <div class="flex items-center gap-2">
-              <a
-                href="https://arxiv.org/abs/2507.05469"
-                target="_blank"
-                class="text-primary text-sm hover:underline"
-              >
-                arXiv:2507.05469
-              </a>
-              <span class="text-muted-foreground text-sm">2025</span>
-            </div>
-            <p class="mt-1 text-sm">
-              A technical report on the first Methods for Open Agent Systems
-              Evaluation Initiative Competition and Intelligence competition
-              held at AAMAS'2025, detailing the competition framework,
-              participating teams, and evaluation results.
-            </p>
-          </div>
-        </div>
+        </TimelineEntry>
       </section>
     </div>
   </CenterLayout>
